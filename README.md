@@ -1,16 +1,15 @@
-# Sonsor #
+# Diesel #
 
 ### Summary
 
-* This is nodejs framework that is build on express and typescript that provides a basic layout of CMD (Controller, Model, Document) approach to create services. Its just simplify the creating of routing etc.
+* This is nodejs framework that is build on express that provides a basic layout of CMD (Controller, Model, Document) approach to create services. Its just simplify the creating of routing etc.
 * version: 0.0.9-alpha
 
 ### Setup
 
 For setting up this repo you first need to clone this repo then install below dependencies as global.
 ```
-npm install -g ts-node
-npm install -g typescript
+npm install -g express
 ```
 
 then run to install local dev dependencies
@@ -21,6 +20,7 @@ npm install --dev
 then run this to install its dependencies
 ```
 npm install
+npm start
 ```
 
 
