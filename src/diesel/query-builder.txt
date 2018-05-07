@@ -1,0 +1,38 @@
+Connector
+
+QueryBuilder
+	select()
+	distinct()
+ 	field()
+
+ 	equals()
+ 	gt()
+ 	gte()
+ 	lte()
+ 	lt()
+ 	exists()
+ 	in()
+ 	notIn()
+ 	range()
+ 	size()
+ 	all()
+ 	mod()
+ 	addOr()
+ 	references()
+ 	includeReferecnes()
+
+ 	sort()
+ 	limit()
+ 	getQuery()
+ 	getSingleResult()
+ 	execute()
+
+
+ 	group()
+ 	reduce()
+
+ 	remove()
+ 	update()
+ 	near()
+ 	distance()
+ 	
