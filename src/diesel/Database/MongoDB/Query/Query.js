@@ -1,4 +1,4 @@
-const TYPES = require('./Types');
+const { TYPES } = require('./Types');
 
 class Query
 {
