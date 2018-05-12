@@ -2,7 +2,7 @@ const { TYPES } = require('./Types');
 const { Expr } = require('./Expr');
 const { Query } = require('./Query');
 
-class QueryBuilder
+class Builder
 {
 	constructor(collection)
 	{
