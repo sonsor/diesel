@@ -192,7 +192,103 @@ class Query
 
 				return this.withReadPreference(collection.getDatabase(),clousre);
 
-			break;			
+			break;
 		}
+	}
+
+	getIterator()
+	{
+		switch (this.query['type']) {
+			case TYPES.TYPE_FIND:
+			case TYPES.TYPE_GROUP:
+			case TYPES.TYPE_MAP_REDUCE:
+			case TYPES.TYPE_DISTINCT:
+			case TYPES.TYPE_GEO_NEAR:
+				break;
+			default:
+				throw new Err();
+		}
+
+		if (this.iterator === null) {
+			let iterator = this.execute();
+
+			if (! iterator instanceof Iterator) {
+				throw new Err();
+			}
+
+			this.iterator = iterator;
+		}
+
+		return this.iterator;
+	}
+
+	getQuery()
+	{
+		return this.query;
+	}
+
+	getSingleResult()
+	{
+		return this.getIterator().getSingleResult();
+	}
+
+	getType()
+	{
+		return this.query['type'];
+	}
+
+	iterate()
+	{
+		return this.getIterator();
+	}
+
+	toArray()
+	{
+		return this.getIterator().toArray();
+	}
+
+	prepareCursor(cursor)
+	{
+		if (typeof this.query['readPreference'] !== 'undefined') {
+			cursor.setReadPreference(this.query['readPreference'], this.query['readPreferenceTags']);
+		}
+
+		let options = this.getQueryOptions('hint', 'immortal', 'limit', 'maxTimeMS', 'skip', 'slaveOkay', 'sort');
+		for (let i in options) {
+			cursor[i](options[i]);
+		}
+
+		if (!empty(this.query['snapshot'])) {
+			cursor.snapshot();
+		}
+
+		if (!empty(this.query['eagerCursor'])) {
+			cursor.
+		}
+
+		return cursor;
+	}
+
+	interset()
+	{
+
+	}
+
+	flip(value)
+	{
+		const result = {};
+		Object.keys(object).forEach((key) => {
+			let value = object[key]
+			if (value != null && typeof value.toString != 'function') {
+				value = toString.call(value)
+			}
+			result[value] = key
+		})
+		return result
+	}
+
+	getQueryOptions()
+	{
+
 	}
 }
